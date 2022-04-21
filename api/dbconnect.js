@@ -19,7 +19,7 @@ router.post('/',(req, res) => {
     
     // console.log('type : ', type );
 
-    if ( type === 'lunchWrite' ) var paramsobj = JSON.parse(params.body);
+    if ( type === 'lunchInsert' ) var paramsobj = JSON.parse(params.body);
     else var paramsobj = params.body;
 
     // console.log('req.body.body 즉 요청데이터타입 : ', typeof paramsobj );
