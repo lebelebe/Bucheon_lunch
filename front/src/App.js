@@ -1,9 +1,9 @@
-import './App.css';
+import Restaurants from './component/Restaurants';
 
 function App() {
   return (
-    <div className="App">
-
+    <div>
+      <Restaurants></Restaurants>
     </div>
   );
 }

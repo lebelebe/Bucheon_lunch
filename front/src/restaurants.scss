@@ -1,0 +1,89 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/* reset */ 
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: "Pretendard", sans-serif;
+    font: inherit;
+    vertical-align: baseline; }
+    
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block; }
+body {
+    font-family: "Pretendard", sans-serif;
+    line-height: 1; }
+ol, ul {
+    list-style: none; }
+blockquote, q {
+    quotes: none; }
+blockquote {
+    &:before, &:after {
+    content: '';
+    content: none; } }
+q {
+    &:before, &:after {
+    content: '';
+    content: none; } }
+table {
+    border-collapse: collapse;
+    border-spacing: 0; }
+
+
+section{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    font-family: 'Pretendard';
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+.vertical-align{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100%;
+    flex: 0 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+.content{
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    flex: 1 1 auto;
+    align-items: flex-start;
+}
+h3{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+/* Restaurants */
+
+#restaurants{
+    background-image: url('./eateateat.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    .menulist{
+        &.li{
+            
+        }
+    }
+}
