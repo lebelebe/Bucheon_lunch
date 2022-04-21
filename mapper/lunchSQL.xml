@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lunchSQL">
+    <select id="lunchList">
+        select
+            *
+        from restaurants.bucheon
+        order by bc_id desc
+    </select>
+    <insert id="lunchInsert">
+        insert into 
+            restaurants.bucheon (
+                bc_name
+                , bc_category
+                , bc_map
+                , bc_info
+            )
+            values (
+                #{name}
+                ,  #{category}
+                ,  #{map}
+                ,  #{info}
+            )
+    </insert>
+    <update id="lunchModify">
+        update
+            restaurants.bucheon (
+                bc_name
+                , bc_category
+                , bc_map
+                , bc_info
+            )
+            set (
+                #{name}
+                ,  #{category}
+                ,  #{map}
+                ,  #{info}
+            )
+            where
+                bc_id = #{no}
+    </update>
+    <delete id="lunchDelete">
+        delete from
+            restaurants.bucheon
+        where
+            bc_id = #{no}
+    </delete> 
+</mapper>
