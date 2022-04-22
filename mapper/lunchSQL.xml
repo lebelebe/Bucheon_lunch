@@ -17,9 +17,9 @@
             )
             values (
                 #{name}
-                ,  #{category}
-                ,  #{map}
-                ,  #{info}
+                ,  #{bc_category}
+                ,  #{bc_map}
+                ,  #{bc_info}
             )
     </insert>
     <update id="lunchModify">
@@ -32,17 +32,17 @@
             )
             set (
                 #{name}
-                ,  #{category}
-                ,  #{map}
-                ,  #{info}
+                ,  #{bc_category}
+                ,  #{bc_map}
+                ,  #{bc_info}
             )
             where
-                bc_id = #{no}
+                bc_id = #{bc_id}
     </update>
     <delete id="lunchDelete">
         delete from
             restaurants.bucheon
         where
-            bc_id = #{no}
+            bc_id = #{bc_id}
     </delete> 
 </mapper>
