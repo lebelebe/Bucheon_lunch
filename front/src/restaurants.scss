@@ -1,0 +1,94 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/* reset */ 
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: "Pretendard", sans-serif;
+    font: inherit;
+    vertical-align: baseline; }
+    
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block; }
+body {
+    font-family: "Pretendard", sans-serif;
+    line-height: 1; }
+ol, ul {
+    list-style: none; }
+blockquote, q {
+    quotes: none; }
+blockquote {
+    &:before, &:after {
+    content: '';
+    content: none; } }
+q {
+    &:before, &:after {
+    content: '';
+    content: none; } }
+table {
+    border-collapse: collapse;
+    border-spacing: 0; }
+
+
+// section{
+//     display: flex;
+//     flex-direction: column;
+//     flex: 1 1 auto;
+//     flex-wrap: wrap;
+//     font-family: 'Pretendard';
+//     height: 100%;
+//     width: 100%;
+//     backface-visibility: hidden;
+// }
+.wrap{
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+.box{
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+    margin: 0 auto;
+    padding: 20px;
+    z-index: 1;
+}
+h3{
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2;
+}
+/* Restaurants */
+
+#restaurants{
+    background-image: url('./eat.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: #fff;
+    &:after{
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.7);
+    }
+}
+.random{
+    img{
+        width: 50px;
+    }
+}
+.todaymenu{
+    h3{
+        color: #FFDD00;
+    }
+}
