@@ -22,7 +22,7 @@ class Insertform extends React.Component{
 
     render() {
         return (
-          <div className='position-fixed' id="modal">
+          <div className='position-fixed bottom-0 end-0' id="modal">
             <Button color="danger" onClick={this.toggle}>가게추가</Button>
             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
               <ModalHeader toggle={this.toggle} charcode="X">가게추가</ModalHeader>

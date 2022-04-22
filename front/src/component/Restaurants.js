@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-// import '../restaurants.scss';
+import '../restaurants.scss';
 
 function Restaurants(props){
-    // Math.random으로 난수 생성후 length만큼 곱하고 1더해서 1부터 시작 + 소수점날림 
-    const randomNumber = Math.floor(Math.random() * 10 +1)
-
+    
     let [ lunchData, setLunchData ] = useState([]);
     const [ typeData, setTypeData ] = useState(0);
 
@@ -28,7 +26,9 @@ function Restaurants(props){
     }
 
     useEffect( () => { dataSetting(); } , [typeData] )
-    
+
+    // Math.random으로 난수 생성후 length만큼 곱하고 1더해서 1부터 시작 + 소수점날림 
+    const randomNumber = Math.floor(Math.random() * lunchData.length + 1)
 
     return(
         <section id='restaurants'>
@@ -36,81 +36,19 @@ function Restaurants(props){
                 <div className='box'>
                     <div className="container text-center">
                         <h1>
-                            점심 뭐 먹지?
+                            쩝쩝박사 Pick!
                         </h1>
                         <div className='menulist'>
                             <ul className='row row-cols-5'>
-                                <li className='col'>
-                                    <h3>한식</h3>
-                                    <ul>
-                                    { lunchData.bc_category === "한식" ?
-                                        lunchData.map((lunchMenu, i) => {
-                                            return(
-                                                <li>
-                                                    <a href="#none" key={i} className="">
-                                                        {lunchMenu.bc_name}
-                                                    </a>
-                                                    <img src="" alt="" />
-                                                    <button>클릭</button>
-                                                </li>
-                                            )
-                                        })
-                                        : ""
-                                    }
-                                    </ul>
-                                </li>
-                                <li className='col'>
-                                    <h3>양식</h3>
-                                    { lunchData.category === "양식" ?
-                                        lunchData.map((lunchMenu, i) => {
-                                            return(
-                                                <a href="#none" key={i} className="">
-                                                    {lunchMenu.bc_name}
-                                                </a>
-                                            )
-                                        })
-                                        : ""
-                                    }
-                                </li>
-                                <li className='col'>
-                                    <h3>일식</h3>
-                                    { lunchData.category === "일식" ?
-                                        lunchData.map((lunchMenu, i) => {
-                                            return(
-                                                <a href="#none" key={i} className="">
-                                                    {lunchMenu.bc_name}
-                                                </a>
-                                            )
-                                        })
-                                        : ""
-                                    }
-                                </li>
-                                <li className='col'>
-                                    <h3>중식</h3>
-                                    { lunchData.category === "중식" ?
-                                        lunchData.map((lunchMenu, i) => {
-                                            return(
-                                                <a href="#none" key={i} className="">
-                                                    {lunchMenu.bc_name}
-                                                </a>
-                                            )
-                                        })
-                                        : ""
-                                    }
-                                </li>
-                                <li className='col'>
-                                    <h3>기타</h3>
-                                    { lunchData.category === "기타" ?
-                                        lunchData.map((lunchMenu, i) => {
-                                            return(
-                                                <a href="#none" key={i} className="">
-                                                    {lunchMenu.bc_name}
-                                                </a>
-                                            )
-                                        })
-                                        : ""
-                                    }
-                                </li>
+                                {lunchData.map((lunchMenu) => {
+                                    return(
+                                        <li>
+                                            <h3>{lunchMenu.bc_name}</h3>
+                                            <a href={lunchMenu.bc_map} target="_blank"><img src="./info.svg" alt={lunchMenu.bc_name} /></a>
+
+                                        </li>
+                                    )
+                                })}
                             </ul>
                         </div>
                         <div className='wantmenu'>
@@ -121,10 +59,10 @@ function Restaurants(props){
                         </div>
                         <div className='random'>
                             <ul className='row justify-content-center'>
-                                <li className='col-6'>
+                                <li className='col-1'>
                                     <img src="/ALL.svg" alt="all"/>
                                 </li>
-                                <li className='col-6'>
+                                <li className='col-1'>
                                     <img src="/SEL.svg" alt="sel"/>
                                 </li>
                             </ul>
