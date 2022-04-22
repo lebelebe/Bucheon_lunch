@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import axios from 'axios';
 
 function RestaurantInsert(props){
-    const selectList = ["한식", "양식", "중식", "일식", "기타"]
+    const selectList = ["선택", "한식", "양식", "중식", "일식", "기타"]
     const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     const [message, setMessage ] = useState('');
     

@@ -84,11 +84,17 @@ h3{
 }
 .random{
     img{
-        width: 50px;
+        width: 75px;
     }
 }
 .todaymenu{
     h3{
         color: #FFDD00;
     }
+}
+#modal{
+    z-index: 99;
+}
+.modal-backdrop.show{
+    opacity: .85 !important;
 }
