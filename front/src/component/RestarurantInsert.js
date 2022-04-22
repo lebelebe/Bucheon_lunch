@@ -24,8 +24,11 @@ function RestaurantInsert(props){
     const formik = useFormik({
         initialValues: {
           bc_name: '',
-          bc_value: '',
+          bc_category: '',
           bc_map: '',
+          crud: `${props.dbinfo.crud}`,
+          mapper: `${props.dbinfo.mapper}`,
+          mapperid: `${props.dbinfo.mapperid}`,
         },
         validationSchema: Yup.object({
             bc_name: Yup.string().required("이름은 필수입니다."),
@@ -35,8 +38,9 @@ function RestaurantInsert(props){
         onSubmit: async (values) => {
             await sleep(500);
             // alert(JSON.stringify(values, null, 2));
+            console.log(values)
             try{
-                axios.post('/api?type='+props.dbinfo.type,
+                axios.post('/lunch?type='+props.dbinfo.type,
                     {
                         headers: {
                             "Content-Type": `application/json`
@@ -84,10 +88,11 @@ function RestaurantInsert(props){
                         id="bc_category"
                         name="bc_category" 
                         onChange={formik.handleChange}
-                        value={formik.values.bc_category}>
-                        {selectList.map((i) => (
-                            <option value={i} key={i} label={i}>
-                                {i}
+                        value={formik.values.bc_category}
+                        {...formik.getFieldProps("bc_category")}>
+                        {selectList.map((cate, i) => (
+                            <option value={cate} key={i} label={cate}>
+                                {cate}
                             </option>
                         ))}
                     </select>
