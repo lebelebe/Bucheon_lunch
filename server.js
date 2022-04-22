@@ -6,7 +6,7 @@ app.get('/', (req, res)=>{
 })
 
 var api = require("./api/dbconnect");
-app.use('/api', api);
+app.use('/lunch', api);
 
 app.listen(8080, () => {
     console.log("서버 구동 성공")

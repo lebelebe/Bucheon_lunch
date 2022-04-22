@@ -5,7 +5,10 @@
         select
             *
         from restaurants.bucheon
-        order by bc_id desc
+        <if test=" no != null and no !='' ">
+            where
+                bc_category = #{bc_category}
+        </if>
     </select>
     <insert id="lunchInsert">
         insert into 
@@ -16,7 +19,7 @@
                 , bc_info
             )
             values (
-                #{name}
+                #{bc_name}
                 ,  #{bc_category}
                 ,  #{bc_map}
                 ,  #{bc_info}
@@ -31,18 +34,18 @@
                 , bc_info
             )
             set (
-                #{name}
+                #{bc_name}
                 ,  #{bc_category}
                 ,  #{bc_map}
                 ,  #{bc_info}
             )
             where
-                bc_id = #{bc_id}
+                bc_id = #{bc_no}
     </update>
     <delete id="lunchDelete">
         delete from
             restaurants.bucheon
         where
-            bc_id = #{bc_id}
+            bc_id = #{bc_no}
     </delete> 
 </mapper>

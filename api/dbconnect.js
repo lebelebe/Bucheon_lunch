@@ -17,17 +17,17 @@ router.post('/',(req, res) => {
     var type = req.query.type; 
     var params = req.body;
     
-    // console.log('type : ', type );
+    console.log('type : ', type );
 
     if ( type === 'lunchInsert' ) var paramsobj = JSON.parse(params.body);
     else var paramsobj = params.body;
 
-    // console.log('req.body.body 즉 요청데이터타입 : ', typeof paramsobj );
-    // console.log('req.body.body 요청데이터  : ', paramsobj ); 
+    console.log('req.body.body 즉 요청데이터타입 : ', typeof paramsobj );
+    console.log('req.body.body 요청데이터  : ', paramsobj ); 
 
     var query = mybatisMapper.getStatement(
         paramsobj.mapper, paramsobj.mapperid, paramsobj, format );
-        // console.log("쿼리문 :", query);
+        console.log("쿼리문 :", query);
         pool.getConnection(function(err, connection) {
 
             if(err) throw console.log(" DB 접속불가 dbconfig.js 에러  : " + err);
