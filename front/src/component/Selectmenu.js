@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 
-function Selectmenu(){
+function Selectmenu(props){
 
     let [ lunchData, setLunchData ] = useState([]);
     const [ typeData, setTypeData ] = useState(0);
@@ -16,7 +16,7 @@ function Selectmenu(){
                 try{
                     setLunchData([...lunch.data]);
                     setTypeData(lunch.data[lunch.data.length - 1].id);
-                    console.log(lunchData[0].list)
+                    console.log(lunchData.length)
                 }
                 catch(err){ console.log('lunch 타입 확인' + err.message + '/' + typeof lunch )}
             })
@@ -26,8 +26,18 @@ function Selectmenu(){
 
     useEffect( () => { dataSetting(); } , [typeData] )
     
-    // Math.random으로 난수 생성후 length만큼 곱하고 1더해서 1부터 시작 + 소수점날림 
-    const randomNumber = Math.floor(Math.random() * lunchData.length + 1)
+    
+
+    const menuChoice = () => {
+        // Math.random으로 난수 생성후 length만큼 곱하고 1더해서 1부터 시작 + 소수점날림 
+        const randomNumber = Math.floor(Math.random() * lunchData.length + 1)
+
+        return(
+            <div>
+                {lunchData[randomNumber].name}
+            </div>)
+
+    }
 
     return(
         <>
@@ -44,7 +54,9 @@ function Selectmenu(){
                         <img src="/ALL.svg" alt="all"/>
                     </li>
                     <li className='col-1'>
-                        <img src="/SEL.svg" alt="sel"/>
+                        <a onClick={ e => {menuChoice()} }>
+                            <img src="/SEL.svg" alt="sel"/>
+                        </a>
                     </li>
                 </ul>
             </div>
