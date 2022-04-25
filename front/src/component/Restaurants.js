@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../restaurants.scss';
 import RestaurantsMenu from './Restaruantmenu';
 import Selectmenu from './Selectmenu';
+import {UncontrolledAccordion, Accordion, AccordionBody, AccordionHeader, AccordionItem} from "reactstrap";
 
 function Restaurants(props){
     
@@ -37,31 +38,33 @@ function Restaurants(props){
                         <h1>
                             쩝쩝박사 Pick!
                         </h1>
-                        <div className='menulist'>
-                            <ul className='row row-cols-5'>
+                        <UncontrolledAccordion className='menulist'>
+                            <div className='row row-cols-5 col-10 mx-auto'>
                                 {lunchData.map((lunchCategory, i) => {
                                     return(
-                                        <li key={i}>
-                                            <h3>{lunchCategory.list}</h3>
-                                            <RestaurantsMenu dbinfo={ {
-                                            botable : 'lunchSelect',
-                                            crud : 'select',
-                                            mapper : 'lunchSQL',
-                                            mapperid : 'lunchList'
-                                            }}
-                                            category = {lunchCategory.list}
-                                            ></RestaurantsMenu>
-                                        </li>
+                                        <AccordionItem key={i}>
+                                                <AccordionHeader targetId={i}>{lunchCategory.list}</AccordionHeader>
+                                                <AccordionBody accordionId={i}>
+                                                    <RestaurantsMenu dbinfo={ {
+                                                    botable : 'lunchSelect',
+                                                    crud : 'select',
+                                                    mapper : 'lunchSQL',
+                                                    mapperid : 'lunchList'
+                                                    }}
+                                                    category = {lunchCategory.list}
+                                                    ></RestaurantsMenu>
+                                                </AccordionBody>
+                                        </AccordionItem>
                                     )
                                 })}
-                            </ul>
-                        </div>
+                            </div>
+                        </UncontrolledAccordion>
                         <Selectmenu dbinfo={ {
                             botable : 'lunchSelect',
                             crud : 'select',
                             mapper : 'lunchSQL',
                             mapperid : 'lunchList'
-                            }}></Selectmenu>
+                        }}></Selectmenu>
                     </div>
                 </div>
             </div>

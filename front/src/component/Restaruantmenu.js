@@ -30,7 +30,7 @@ function RestaurantsMenu(props){
         <ul>
             {lunchData.map((lunchMenu) => {
                 return(
-                    <li className="d-flex">
+                    <li className="d-flex justify-content-center align-items-center">
                         {lunchMenu.list === props.category
                             ?
                                 <>
