@@ -25,20 +25,26 @@ function RestaurantsMenu(props){
     }
 
     useEffect( () => { dataSetting(); } , [typeData] )
-
+    
     return(
-        <>
+        <ul>
             {lunchData.map((lunchMenu) => {
                 return(
-                    <div className="d-flex">
-                        <span>{lunchMenu.name}</span>
-                        <div>
-                            <a href={lunchMenu.map} target="_blank"><img src="info.svg"/></a>
-                        </div>
-                    </div>
+                    <li className="d-flex">
+                        {lunchMenu.list === props.category
+                            ?
+                                <>
+                                    <span className="lh-base">{lunchMenu.name}</span>
+                                    <div>
+                                        <a href={lunchMenu.map} target="_blank"><img src="info.svg"/></a>
+                                    </div>
+                                </>
+                            :   ""
+                        }
+                    </li>
                 )
             })}
-        </>
+        </ul>
     )
 
 }
