@@ -4,11 +4,17 @@
     <select id="lunchList">
         select
             *
-        from restaurants.bucheon
+        from restaurants.category
+        inner join bucheon on category.list = bucheon.list
         <if test=" no != null and no !='' ">
             where
-                list = #{list}
+                category.list = #{list}
         </if>
+    </select>
+    <select id="categoryList">
+        select
+            *
+        from restaurants.category
     </select>
     <insert id="lunchInsert">
         insert into 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../restaurants.scss';
+import RestaurantsMenu from './Restaruantmenu';
 
 function Restaurants(props){
     
@@ -40,12 +41,18 @@ function Restaurants(props){
                         </h1>
                         <div className='menulist'>
                             <ul className='row row-cols-5'>
-                                {lunchData.map((lunchMenu) => {
+                                {lunchData.map((lunchCategory, i) => {
                                     return(
-                                        <li>
-                                            <h3>{lunchMenu.name}</h3>
-                                            <a href={lunchMenu.map} target="_blank"><img src="./info.svg" alt={lunchMenu.name} /></a>
-
+                                        <li key={i}>
+                                            <h3>{lunchCategory.list}</h3>
+                                            <RestaurantsMenu dbinfo={ {
+                                            botable : 'lunchSelect',
+                                            crud : 'select',
+                                            mapper : 'lunchSQL',
+                                            mapperid : 'lunchList'
+                                            }}
+                                            category = {lunchCategory.list}
+                                            ></RestaurantsMenu>
                                         </li>
                                     )
                                 })}
