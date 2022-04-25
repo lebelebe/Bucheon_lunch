@@ -7,45 +7,45 @@
         from restaurants.bucheon
         <if test=" no != null and no !='' ">
             where
-                bc_category = #{bc_category}
+                list = #{list}
         </if>
     </select>
     <insert id="lunchInsert">
         insert into 
             restaurants.bucheon (
-                bc_name
-                , bc_category
-                , bc_map
-                , bc_info
+                name
+                , list
+                , map
+                , info
             )
             values (
-                #{bc_name}
-                ,  #{bc_category}
-                ,  #{bc_map}
-                ,  #{bc_info}
+                #{name}
+                ,  #{list}
+                ,  #{map}
+                ,  #{info}
             )
     </insert>
     <update id="lunchModify">
         update
             restaurants.bucheon (
-                bc_name
-                , bc_category
-                , bc_map
-                , bc_info
+                name
+                , list
+                , map
+                , info
             )
             set (
-                #{bc_name}
-                ,  #{bc_category}
-                ,  #{bc_map}
-                ,  #{bc_info}
+                #{name}
+                ,  #{list}
+                ,  #{map}
+                ,  #{info}
             )
             where
-                bc_id = #{bc_no}
+                id = #{no}
     </update>
     <delete id="lunchDelete">
         delete from
             restaurants.bucheon
         where
-            bc_id = #{bc_no}
+            id = #{no}
     </delete> 
 </mapper>

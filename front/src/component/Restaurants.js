@@ -16,8 +16,8 @@ function Restaurants(props){
             (lunch => {
                 try{
                     setLunchData([...lunch.data]);
-                    setTypeData(lunch.data[lunch.data.length - 1].bc_id);
-                    console.log(lunchData[0].bc_category)
+                    setTypeData(lunch.data[lunch.data.length - 1].id);
+                    console.log(lunchData[0].list)
                 }
                 catch(err){ console.log('lunch 타입 확인' + err.message + '/' + typeof lunch )}
             })
@@ -43,8 +43,8 @@ function Restaurants(props){
                                 {lunchData.map((lunchMenu) => {
                                     return(
                                         <li>
-                                            <h3>{lunchMenu.bc_name}</h3>
-                                            <a href={lunchMenu.bc_map} target="_blank"><img src="./info.svg" alt={lunchMenu.bc_name} /></a>
+                                            <h3>{lunchMenu.name}</h3>
+                                            <a href={lunchMenu.map} target="_blank"><img src="./info.svg" alt={lunchMenu.name} /></a>
 
                                         </li>
                                     )
