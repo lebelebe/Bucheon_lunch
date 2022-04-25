@@ -5,6 +5,7 @@ function Selectmenu(props){
 
     let [ lunchData, setLunchData ] = useState([]);
     const [ typeData, setTypeData ] = useState(0);
+    let [ todaymenu, setTodaymenu ] = useState('');
 
     const dataSetting = async () => {
         axios.post('/lunch?type='+props.dbinfo.botable, {
@@ -30,12 +31,11 @@ function Selectmenu(props){
 
     const menuChoice = () => {
         // Math.random으로 난수 생성후 length만큼 곱하고 1더해서 1부터 시작 + 소수점날림 
-        const randomNumber = Math.floor(Math.random() * lunchData.length + 1)
+        const randomNumber = Math.floor(Math.random() * lunchData.length)
 
-        return(
-            <div>
-                {lunchData[randomNumber].name}
-            </div>)
+        setTodaymenu(
+            lunchData[randomNumber].name
+        )
 
     }
 
@@ -46,15 +46,17 @@ function Selectmenu(props){
             </div> */}
             <div className='todaymenu'>
                 <h3>&#91; 오늘의 메뉴 &#93;</h3>
-
+                <div>{todaymenu}</div>
             </div>
             <div className='random'>
                 <ul className='row justify-content-center'>
-                    <li className='col-1'>
-                        <img src="/ALL.svg" alt="all"/>
+                    <li className='col-1' >
+                        <a href="#none" onClick={ e => {menuChoice()} }>
+                            <img src="/ALL.svg" alt="all"/>
+                        </a>
                     </li>
                     <li className='col-1'>
-                        <a onClick={ e => {menuChoice()} }>
+                        <a>
                             <img src="/SEL.svg" alt="sel"/>
                         </a>
                     </li>
