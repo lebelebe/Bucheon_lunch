@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../restaurants.scss';
 import RestaurantsMenu from './Restaruantmenu';
+import Selectmenu from './Selectmenu';
 
 function Restaurants(props){
     
@@ -55,6 +56,12 @@ function Restaurants(props){
                                 })}
                             </ul>
                         </div>
+                        <Selectmenu dbinfo={ {
+                            botable : 'lunchSelect',
+                            crud : 'select',
+                            mapper : 'lunchSQL',
+                            mapperid : 'lunchList'
+                            }}></Selectmenu>
                     </div>
                 </div>
             </div>

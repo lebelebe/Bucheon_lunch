@@ -69,7 +69,7 @@ h3{
 }
 /* Restaurants */
 
-.App{
+#restaurants{
     background-image: url('./eat.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -99,6 +99,11 @@ h3{
 .todaymenu{
     h3{
         color: #FFDD00;
+    }
+    div{
+        font-size: 2.5rem;
+        font-weight: 600;
+        line-height: 1.5;
     }
 }
 #modal{
