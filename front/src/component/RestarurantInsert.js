@@ -12,28 +12,28 @@ function RestaurantInsert(props){
     const validate = values => {
         const errors = {};
 
-        if(!values.bc_name){
-            errors.bc_name = "이름은 필수입니다.";
+        if(!values.name){
+            errors.name = "이름은 필수입니다.";
         }
-        if(values.bc_info.length > 100){
-            errors.bc_info = "100자 이내로 작성해주세요."
+        if(values.info.length > 100){
+            errors.info = "100자 이내로 작성해주세요."
         }
         return errors;
     }
 
     const formik = useFormik({
         initialValues: {
-          bc_name: '',
-          bc_category: '',
-          bc_map: '',
+          name: '',
+          list: '',
+          map: '',
           crud: `${props.dbinfo.crud}`,
           mapper: `${props.dbinfo.mapper}`,
           mapperid: `${props.dbinfo.mapperid}`,
         },
         validationSchema: Yup.object({
-            bc_name: Yup.string().required("이름은 필수입니다."),
-            bc_map: Yup.string().required("주소는 필수입니다."),
-            bc_info: Yup.string().max(100, "100자를 초과할 수 없습니다.")
+            name: Yup.string().required("이름은 필수입니다."),
+            map: Yup.string().required("주소는 필수입니다."),
+            info: Yup.string().max(100, "100자를 초과할 수 없습니다.")
           }),
         onSubmit: async (values) => {
             await sleep(500);
@@ -74,49 +74,49 @@ function RestaurantInsert(props){
                     <input type="hidden" name="mapper" value={props.dbinfo.mapper} />
                     <input type="hidden" name="mapperid" value={props.dbinfo.mapperid} />
                 </div>
-                <label htmlFor="bc_name">가게이름</label>
+                <label htmlFor="name">가게이름</label>
                     <input
-                        id="bc_name"
-                        name="bc_name"
+                        id="name"
+                        name="name"
                         type="text"
                         onChange={formik.handleChange}
-                        value={formik.values.bc_name} 
-                        {...formik.getFieldProps("bc_name")}/>
-                {formik.touched.bc_name && formik.errors.bc_name ? (<div className="input-feedback">{formik.errors.bc_name}</div>): null}
-                <label htmlFor="bc_category">카테고리</label>
+                        value={formik.values.name} 
+                        {...formik.getFieldProps("name")}/>
+                {formik.touched.name && formik.errors.name ? (<div className="input-feedback">{formik.errors.name}</div>): null}
+                <label htmlFor="list">카테고리</label>
                     <select
-                        id="bc_category"
-                        name="bc_category" 
+                        id="list"
+                        name="list" 
                         onChange={formik.handleChange}
-                        value={formik.values.bc_category}
-                        {...formik.getFieldProps("bc_category")}>
+                        value={formik.values.list}
+                        {...formik.getFieldProps("list")}>
                         {selectList.map((cate, i) => (
                             <option value={cate} key={i} label={cate}>
                                 {cate}
                             </option>
                         ))}
                     </select>
-                <label htmlFor="bc_map">가게주소</label>
+                <label htmlFor="map">가게주소</label>
                 <input
-                    id="bc_map"
-                    name="bc_map"
+                    id="map"
+                    name="map"
                     type="text"
                     onChange={formik.handleChange}
-                    value={formik.values.bc_map} 
-                    {...formik.getFieldProps("bc_map")}/>
-                {formik.touched.bc_map && formik.errors.bc_map ? (<div className="input-feedback">{formik.errors.bc_map}</div>): null}
-                <label htmlFor="bc_info">가게정보</label>
+                    value={formik.values.map} 
+                    {...formik.getFieldProps("map")}/>
+                {formik.touched.map && formik.errors.map ? (<div className="input-feedback">{formik.errors.map}</div>): null}
+                <label htmlFor="info">가게정보</label>
                     <textarea
-                        id="bc_info"
-                        name="bc_info"
+                        id="info"
+                        name="info"
                         type="textarea"
                         rows="5"
                         cols="33"
                         onChange={formik.handleChange}
-                        value={formik.values.bc_info}
-                        {...formik.getFieldProps("bc_info")}>
+                        value={formik.values.info}
+                        {...formik.getFieldProps("info")}>
                     </textarea>
-                    {formik.touched.bc_info && formik.errors.bc_info ? (<div className="input-feedback">{formik.errors.bc_info}</div>): null}
+                    {formik.touched.info && formik.errors.info ? (<div className="input-feedback">{formik.errors.info}</div>): null}
                 <button type="submit">
                     등록
                 </button>
