@@ -22,9 +22,9 @@ router.post('/',(req, res) => {
     var paramsobj = params.body;
     // if ( type === 'lunchInsert' ) var paramsobj = JSON.parse(params.body);
     // else var paramsobj = params.body;
-    console.log(paramsobj);
-    console.log('req.body.body 즉 요청데이터타입 : ', typeof paramsobj );
-    console.log('req.body.body 요청데이터  : ', paramsobj ); 
+    // console.log(paramsobj);
+    // console.log('req.body.body 즉 요청데이터타입 : ', typeof paramsobj );
+    // console.log('req.body.body 요청데이터  : ', paramsobj ); 
 
     var query = mybatisMapper.getStatement(
         paramsobj.mapper, paramsobj.mapperid, paramsobj, format );

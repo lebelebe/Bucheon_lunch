@@ -45,7 +45,7 @@ function Selectmenu(props){
                 <h3>&#91; 선택한 메뉴 &#93;</h3>
             </div> */}
             <div className='todaymenu'>
-                <h3>&#91; 오늘의 메뉴 &#93;</h3>
+                <h2>&#91; 오늘의 메뉴 &#93;</h2>
                 <div>{todaymenu}</div>
             </div>
             <div className='random'>
