@@ -28,9 +28,6 @@ function Restaurants(props){
 
     useEffect( () => { dataSetting(); } , [typeData] )
 
-    // Math.random으로 난수 생성후 length만큼 곱하고 1더해서 1부터 시작 + 소수점날림 
-    const randomNumber = Math.floor(Math.random() * lunchData.length + 1)
-
     return(
         <section id='restaurants'>
             <div className="wrap">
@@ -57,54 +54,6 @@ function Restaurants(props){
                                     )
                                 })}
                             </ul>
-                        </div>
-                        <div className='wantmenu'>
-                            <h3>&#91; 선택한 메뉴 &#93;</h3>
-                        </div>
-                        <div className='todaymenu'>
-                            <h3>&#91; 오늘의 메뉴 &#93;</h3>
-                        </div>
-                        <div className='random'>
-                            <ul className='row justify-content-center'>
-                                <li className='col-1'>
-                                    <img src="/ALL.svg" alt="all"/>
-                                </li>
-                                <li className='col-1'>
-                                    <img src="/SEL.svg" alt="sel"/>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className='footer'>
-                            <ul className='weekendlist row'>
-                                <li className='col'>
-                                    <div className="">
-                                        <h3>월</h3>
-                                    </div>
-                                </li>
-                                <li className='col'>
-                                    <div className="">
-                                        <h3>화</h3>
-                                    </div>
-                                </li>
-                                <li className='col'>
-                                    <div className="">
-                                        <h3>수</h3>
-                                    </div>
-                                </li>
-                                <li className='col'>
-                                    <div className="">
-                                        <h3>목</h3>
-                                    </div>
-                                </li>
-                                <li className='col'>
-                                    <div className="">
-                                        <h3>금</h3>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className='addmenu'>
-                            <button>메뉴추가</button>
                         </div>
                     </div>
                 </div>
