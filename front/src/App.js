@@ -9,7 +9,7 @@ function App() {
         botable : 'lunchSelect',
         crud : 'select',
         mapper : 'lunchSQL',
-        mapperid : 'lunchList'
+        mapperid : 'categoryList'
         }}></Restaurants>
       <Insertform></Insertform>
     </div>

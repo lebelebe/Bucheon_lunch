@@ -58,6 +58,10 @@ table {
     padding: 20px;
     z-index: 1;
 }
+h1{
+    font-size: 3.5rem;
+    font-weight: 700;
+}
 h3{
     font-size: 2rem;
     font-weight: 700;
@@ -80,6 +84,11 @@ h3{
         width: 100%;
         height: 100%;
         background-color: rgba(0,0,0,.7);
+    }
+}
+.menulist{
+    img{
+        width: 20px;
     }
 }
 .random{
